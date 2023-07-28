@@ -20,12 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('beneficiary', [BeneficiaryController::class, 'create']);
 Route::post('beneficiary', [BeneficiaryController::class, 'store']);
+Route::get('/nominee/{id}', [NomineeController::class, 'create'])->name('nominee.create');
+
+Route::post('/nominee/{id}', [NomineeController::class,'store'])->name('nominee.store');
 
 
-Route::get('/nominee/{id}', [NomineeController::class, 'create'])->name('nominee');
-Route::post('/nominee/{id}', [NomineeController::class, 'store']);
+// Route::get('/nominee/{id}', [NomineeController::class, 'create']);
+// Route::post('/nominee/{id}', [NomineeController::class, 'store']);
 
 // index show create store edit update destroy
 
